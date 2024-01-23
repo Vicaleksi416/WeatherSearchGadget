@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply m-0 p-0 bg-teal-700;
+}
+
+#root {
+  @apply flex justify-center;
+}
+
+.App {
+  @apply text-center my-14 mx-0 w-11/12 max-w-3xl h-96 py-5 px-3 rounded-3xl bg-emerald-200 shadow-lg;
+}
+
+.search-engine {
+  @apply w-full flex justify-around items-center mb-8 mt-3 p-2;
+}
+
+.search-engine input {
+  @apply box-border w-3/4 h-12 border-2 rounded-lg py-0.5 px-4 bg-white text-gray-400;
+}
+
+.search-engine button {
+  @apply h-12 border-2 rounded-lg px-8 py-0.5 bg-sky-200 cursor-pointer shadow-lg;
+}
