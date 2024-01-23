@@ -1,13 +1,57 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Search from './Search';
 
 export default function Weather() {
+  let defualtCityData = {
+    coord: {
+      lon: -0.1257,
+      lat: 51.5085,
+    },
+    weather: [
+      {
+        id: 804,
+        main: 'Clouds',
+        description: 'overcast clouds',
+        icon: '04n',
+      },
+    ],
+    base: 'stations',
+    main: {
+      temp: 12.7,
+      feels_like: 12.38,
+      temp_min: 11.49,
+      temp_max: 13.47,
+      pressure: 1011,
+      humidity: 90,
+    },
+    visibility: 10000,
+    wind: {
+      speed: 8.23,
+      deg: 230,
+    },
+    clouds: {
+      all: 100,
+    },
+    dt: 1706043492,
+    sys: {
+      type: 2,
+      id: 2075535,
+      country: 'GB',
+      sunrise: 1705996317,
+      sunset: 1706027523,
+    },
+    timezone: 0,
+    id: 2643743,
+    name: 'London',
+    cod: 200,
+  };
+
   const [search, setSearch] = useState('');
   const [loading, setLoading] = useState(false);
-  const [weatherData, setWeatherData] = useState(null);
-  const [count, setCount] = useState(0);
+  const [weatherData, setWeatherData] = useState(defualtCityData);
+  // const [count, setCount] = useState(0);
 
-  const defualtCity = 'London';
+  const defualtCity = 'Taipei';
 
   async function fetchWeatherData(p) {
     try {
@@ -31,10 +75,6 @@ export default function Weather() {
       console.error(err);
     }
   }
-
-  useEffect(() => {
-    fetchWeatherData(defualtCity);
-  }, [count]);
 
   async function handleSearch() {
     fetchWeatherData(search);
