@@ -5,6 +5,8 @@ export default function Weather() {
   const [search, setSearch] = useState('');
   const [loading, setLoading] = useState(false);
   const [weatherData, setWeatherData] = useState(null);
+  const [count, setCount] = useState(0);
+
   const defualtCity = 'London';
 
   async function fetchWeatherData(p) {
@@ -32,7 +34,7 @@ export default function Weather() {
 
   useEffect(() => {
     fetchWeatherData(defualtCity);
-  });
+  }, [count]);
 
   async function handleSearch() {
     fetchWeatherData(search);
