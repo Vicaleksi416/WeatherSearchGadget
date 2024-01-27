@@ -536,10 +536,11 @@ video {
 }
 
 body {
-  margin: 0px;
-  --tw-bg-opacity: 1;
-  background-color: rgb(15 118 110 / var(--tw-bg-opacity));
-  padding: 0px;
+  font-family: 'Mooli', sans-serif;
+  font-family: 'Ubuntu', sans-serif;
+  background-image: url(https://picsum.photos/id/16/2500/1667?grayscle=1&blur=2);
+  background-repeat: no-repeat;
+  background-size: auto
 }
 
 #root {
@@ -552,19 +553,19 @@ body {
   margin-bottom: 3.5rem;
   margin-left: 0px;
   margin-right: 0px;
-  height: 24rem;
+  height: auto;
   width: 91.666667%;
   max-width: 48rem;
   border-radius: 1.5rem;
   --tw-bg-opacity: 1;
-  background-color: rgb(167 243 208 / var(--tw-bg-opacity));
+  background-color: rgb(228 228 231 / var(--tw-bg-opacity));
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
   padding-left: 0.75rem;
   padding-right: 0.75rem;
   text-align: center;
-  --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-  --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
+  --tw-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  --tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
@@ -575,7 +576,7 @@ body {
   width: 100%;
   align-items: center;
   justify-content: space-around;
-  padding: 0.5rem;
+  padding-top: 0.5rem;
 }
 
 .search-engine input {
@@ -585,7 +586,7 @@ body {
   border-radius: 0.5rem;
   border-width: 2px;
   --tw-bg-opacity: 1;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+  background-color: rgb(243 244 246 / var(--tw-bg-opacity));
   padding-top: 0.125rem;
   padding-bottom: 0.125rem;
   padding-left: 1rem;
@@ -600,7 +601,7 @@ body {
   border-radius: 0.5rem;
   border-width: 2px;
   --tw-bg-opacity: 1;
-  background-color: rgb(186 230 253 / var(--tw-bg-opacity));
+  background-color: rgb(207 250 254 / var(--tw-bg-opacity));
   padding-left: 2rem;
   padding-right: 2rem;
   padding-top: 0.125rem;
@@ -608,4 +609,32 @@ body {
   --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.city-name {
+  margin: 0.5rem;
+  padding-top: 1rem;
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.date {
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.main-info {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.weather-info {
+  margin: 0.5rem;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 1rem;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
 }

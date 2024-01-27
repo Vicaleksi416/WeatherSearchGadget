@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Search from './Search';
+import WeatherInfo from './WeatherInfo';
 
 export default function Weather() {
   let defualtCityData = {
@@ -46,6 +47,8 @@ export default function Weather() {
     cod: 200,
   };
 
+  //TODO: render defualt page, remove def-data
+
   const [search, setSearch] = useState('');
   const [loading, setLoading] = useState(false);
   const [weatherData, setWeatherData] = useState(defualtCityData);
@@ -60,7 +63,7 @@ export default function Weather() {
       const apiKey = `bb990c39eac3984e8a84c81bf178a724`;
       const url = `https://api.openweathermap.org/data/2.5/weather?q=${p}&units=metric&appid=${apiKey}`;
 
-      const res = await fetch(url);
+      const res = await fetch(url); //.then?
       const resData = await res.json();
 
       console.log(resData);
@@ -72,6 +75,8 @@ export default function Weather() {
       }
     } catch (err) {
       setLoading(false);
+      //TODO: render err content
+
       console.error(err);
     }
   }
@@ -81,15 +86,8 @@ export default function Weather() {
     setSearch('');
   }
 
-  function getDate() {
-    return new Date().toLocaleDateString('en-us', {
-      weekday: 'long',
-      month: 'long',
-      day: 'numeric',
-      year: 'numeric',
-    });
-  }
-
+  //TODO: render defualt content, bg-img
+  // * idealy the img will match the target city, find an API for that
   return (
     <div>
       <Search
@@ -97,35 +95,7 @@ export default function Weather() {
         setSearch={setSearch}
         handleSearch={handleSearch}
       />
-      {loading ? (
-        <div>Loading...</div>
-      ) : (
-        <div>
-          <div className="city-name">
-            <h2>
-              {weatherData?.name}, <span>{weatherData?.sys.country}</span>
-            </h2>
-          </div>
-          <div className="date">
-            <span>{getDate()}</span>
-          </div>
-          <div className="temp">
-            Tempture: {weatherData?.main?.temp}°C, feels like:{' '}
-            {weatherData?.main?.feels_like}°C
-          </div>
-          <p className="description">{weatherData?.weather[0]?.description}</p>
-          <div className="weather-info">
-            <div>
-              <div>
-                <p className="wind">Wind speed: {weatherData?.wind?.speed}</p>
-              </div>
-              <div>
-                <p className="wind">Humidity: {weatherData?.main?.humidity}%</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
+      {loading ? <div>Loading...</div> : <WeatherInfo data={weatherData} />}
     </div>
   );
 }

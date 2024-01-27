@@ -2,8 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
 body {
-  @apply m-0 p-0 bg-teal-700;
+  font-family: 'Mooli', sans-serif;
+  font-family: 'Ubuntu', sans-serif;
+  background-image: url(https://picsum.photos/id/16/2500/1667?grayscle=1&blur=2);
+  background-repeat: no-repeat;
+  background-size: auto
 }
 
 #root {
@@ -11,17 +17,33 @@ body {
 }
 
 .App {
-  @apply text-center my-14 mx-0 w-11/12 max-w-3xl h-96 py-5 px-3 rounded-3xl bg-emerald-200 shadow-lg;
+  @apply text-center my-14 mx-0 w-11/12 max-w-3xl h-auto py-5 px-3 rounded-3xl bg-zinc-200 shadow-2xl;
 }
 
 .search-engine {
-  @apply w-full flex justify-around items-center mb-8 mt-3 p-2;
+  @apply w-full flex justify-around items-center mb-8 mt-3 pt-2;
 }
 
 .search-engine input {
-  @apply box-border w-3/4 h-12 border-2 rounded-lg py-0.5 px-4 bg-white text-gray-400;
+  @apply box-border w-3/4 h-12 border-2 rounded-lg py-0.5 px-4 bg-gray-100 text-gray-400;
 }
 
 .search-engine button {
-  @apply h-12 border-2 rounded-lg px-8 py-0.5 bg-sky-200 cursor-pointer shadow-lg;
+  @apply h-12 border-2 rounded-lg px-8 py-0.5 bg-cyan-100 cursor-pointer shadow-lg;
+}
+
+.city-name {
+  @apply text-5xl pt-4 m-2;
+}
+
+.date {
+  @apply text-base mt-2 mb-4;
+}
+
+.main-info {
+  @apply text-2xl;
+}
+
+.weather-info {
+  @apply flex text-xl justify-evenly p-4 m-2;
 }
