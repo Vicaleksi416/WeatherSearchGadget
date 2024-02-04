@@ -81,7 +81,8 @@ export default function Weather() {
     }
   }
 
-  async function handleSearch() {
+  async function handleSearch(e) {
+    e.preventDefault();
     fetchWeatherData(search);
     setSearch('');
   }
@@ -95,7 +96,11 @@ export default function Weather() {
         setSearch={setSearch}
         handleSearch={handleSearch}
       />
-      {loading ? <div>Loading...</div> : <WeatherInfo data={weatherData} />}
+      {loading ? (
+        <div>Loading...</div>
+      ) : (
+        <WeatherInfo data={weatherData} loading={loading} />
+      )}
     </div>
   );
 }

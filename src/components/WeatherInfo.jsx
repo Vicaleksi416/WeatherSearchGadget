@@ -1,7 +1,7 @@
 // import { useState } from 'react';
 import countryies from '../countryList';
 
-export default function WeatherInfo(data) {
+export default function WeatherInfo(data, loading) {
   /*
     const [code, setCode] = useState(null);
 */
@@ -18,14 +18,20 @@ export default function WeatherInfo(data) {
     });
   }
 
-  console.log(countryies);
+  const c = weatherData.sys.country;
+
+  const truncateTemp = function (t) {
+    const truncTemp = Math.round(t * 10) / 10;
+    // console.log(truncTemp);
+    return truncTemp;
+  };
 
   return (
     <>
-      <div>
+      <div className={loading ? 'opacity-0' : 'opacity-100'}>
         <div>
           <h2 className="city-name">
-            {weatherData?.name}, {weatherData?.sys.country}
+            {weatherData?.name}, {countryies[c]}
           </h2>
           <div className="date">
             <span>{getDate()}</span>
@@ -33,8 +39,8 @@ export default function WeatherInfo(data) {
         </div>
         <div className="main-info">
           <p className="temp">
-            Tempture: {weatherData?.main?.temp}°C, feels like:{' '}
-            {weatherData?.main?.feels_like}°C
+            Tempture: {truncateTemp(weatherData?.main?.temp)}°C, feels like:{' '}
+            {truncateTemp(weatherData?.main?.feels_like)}°C
           </p>
           <p className="description">{weatherData?.weather[0]?.description}</p>
         </div>
